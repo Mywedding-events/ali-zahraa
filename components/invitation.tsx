@@ -233,6 +233,7 @@ function Countdown({ reduceMotion, locale }: { reduceMotion: boolean; locale: Lo
 export function Invitation() {
   const deckRef = useRef<HTMLDivElement>(null);
   const stageRef = useRef<HTMLDivElement>(null);
+  const audioRef = useRef<HTMLAudioElement>(null);
   const revealTimeouts = useRef<number[]>([]);
   const [current, setCurrent] = useState(0);
   const [cueHidden, setCueHidden] = useState(false);
@@ -251,11 +252,41 @@ export function Invitation() {
     deck.scrollTo({ top: slides[next].offsetTop, behavior: reduceMotion ? "auto" : "smooth" });
   }, [reduceMotion]);
 
+  const startMusic = useCallback(() => {
+    const audio = audioRef.current;
+    if (!audio || !audio.paused) return;
+    void audio.play().catch(() => {
+      // Browsers may require the guest's first interaction before playing audio.
+    });
+  }, []);
+
   const openGate = useCallback(() => {
     if (opened) return;
+    startMusic();
     setOpened(true);
     window.setTimeout(() => setGateVisible(false), 2200);
-  }, [opened]);
+  }, [opened, startMusic]);
+
+  useEffect(() => {
+    startMusic();
+
+    const retryAfterInteraction = () => {
+      startMusic();
+      window.setTimeout(() => {
+        if (!audioRef.current?.paused) {
+          window.removeEventListener("pointerdown", retryAfterInteraction);
+          window.removeEventListener("keydown", retryAfterInteraction);
+        }
+      }, 0);
+    };
+
+    window.addEventListener("pointerdown", retryAfterInteraction);
+    window.addEventListener("keydown", retryAfterInteraction);
+    return () => {
+      window.removeEventListener("pointerdown", retryAfterInteraction);
+      window.removeEventListener("keydown", retryAfterInteraction);
+    };
+  }, [startMusic]);
 
   useEffect(() => {
     const requestedLocale = new URLSearchParams(window.location.search).get("lang");
@@ -405,6 +436,7 @@ export function Invitation() {
 
   return (
     <main className={locale === "ar" ? "arabic" : "english"} dir={locale === "ar" ? "rtl" : "ltr"}>
+      <audio ref={audioRef} src="/uploads/music.mp3" autoPlay loop preload="auto" playsInline aria-hidden="true" />
       <div className="lang-switch" role="group" aria-label={content.language} dir="ltr">
         <button className={locale === "en" ? "active" : ""} onClick={() => chooseLocale("en")} aria-pressed={locale === "en"}>English</button>
         <span aria-hidden="true" />

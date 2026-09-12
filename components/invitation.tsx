@@ -109,7 +109,6 @@ const ARTWORK = [
 ];
 
 const SLIDE_COUNT = 5;
-const AUTO_ADVANCE_DELAY = 7000;
 
 type CountdownValue = { d: number; h: number; m: number; s: number };
 
@@ -415,16 +414,6 @@ export function Invitation() {
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [current, go, openGate, opened]);
-
-  useEffect(() => {
-    if (!opened) return;
-
-    const timer = window.setTimeout(() => {
-      go((current + 1) % SLIDE_COUNT);
-    }, AUTO_ADVANCE_DELAY);
-
-    return () => window.clearTimeout(timer);
-  }, [current, go, opened]);
 
   const chooseLocale = (nextLocale: Locale) => {
     setLocale(nextLocale);

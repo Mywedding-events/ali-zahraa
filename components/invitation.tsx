@@ -109,6 +109,7 @@ const ARTWORK = [
 ];
 
 const SLIDE_COUNT = 5;
+const AUTO_ADVANCE_DELAY = 7000;
 
 type CountdownValue = { d: number; h: number; m: number; s: number };
 
@@ -135,22 +136,6 @@ function Ornament() {
   return <div className="orn rv" aria-hidden="true"><i /><i /><i /></div>;
 }
 
-function Monogram({ locale }: { locale: Locale }) {
-  if (locale === "en") return <>A &amp; Z</>;
-
-  return (
-    <span className="arabic-monogram" dir="rtl" aria-label="علي وزهراء">
-      <svg className="monogram-flourish" viewBox="0 0 72 52" aria-hidden="true">
-        <path d="M5 38c12 10 43 11 62-4" />
-        <path d="M12 41c7-7 15-10 24-7" />
-      </svg>
-      <span className="monogram-initial jim">ع</span>
-      <span className="monogram-connector" aria-hidden="true">و</span>
-      <span className="monogram-initial alif">ز</span>
-    </span>
-  );
-}
-
 function Crest({ className = "rv", locale = "en" }: { className?: string; locale?: Locale }) {
   return (
     <div className={`crest ${className}`}>
@@ -160,7 +145,11 @@ function Crest({ className = "rv", locale = "en" }: { className?: string; locale
           <circle cx="48" cy="48" r="47" />
           <circle className="inner" cx="48" cy="48" r="41" />
         </svg>
-        <b><Monogram locale={locale} /></b>
+        <span
+          className="day-logo"
+          role="img"
+          aria-label={locale === "ar" ? "شعار علي وزهراء" : "Ali and Zahraa's wedding logo"}
+        />
       </div>
     </div>
   );
@@ -426,6 +415,16 @@ export function Invitation() {
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [current, go, openGate, opened]);
+
+  useEffect(() => {
+    if (!opened) return;
+
+    const timer = window.setTimeout(() => {
+      go((current + 1) % SLIDE_COUNT);
+    }, AUTO_ADVANCE_DELAY);
+
+    return () => window.clearTimeout(timer);
+  }, [current, go, opened]);
 
   const chooseLocale = (nextLocale: Locale) => {
     setLocale(nextLocale);

@@ -111,7 +111,7 @@ const ARTWORK = [
 const SLIDE_COUNT = 5;
 // Guests are walked through the deck on their own; the timer restarts
 // whenever they take over and steers to a slide themselves.
-const AUTO_ADVANCE_MS = 7000;
+const AUTO_ADVANCE_MS = 5000;
 
 type CountdownValue = { d: number; h: number; m: number; s: number };
 

@@ -109,6 +109,9 @@ const ARTWORK = [
 ];
 
 const SLIDE_COUNT = 5;
+// Guests are walked through the deck on their own; the timer restarts
+// whenever they take over and steers to a slide themselves.
+const AUTO_ADVANCE_MS = 7000;
 
 type CountdownValue = { d: number; h: number; m: number; s: number };
 
@@ -414,6 +417,12 @@ export function Invitation() {
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [current, go, openGate, opened]);
+
+  useEffect(() => {
+    if (!opened || current >= SLIDE_COUNT - 1) return;
+    const timer = window.setTimeout(() => go(current + 1), AUTO_ADVANCE_MS);
+    return () => window.clearTimeout(timer);
+  }, [current, go, opened]);
 
   const chooseLocale = (nextLocale: Locale) => {
     setLocale(nextLocale);

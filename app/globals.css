@@ -41,6 +41,7 @@
     background: var(--paper);
     color: var(--ink);
     font-family: var(--serif);
+    font-weight: 500;
     -webkit-font-smoothing: antialiased;
   }
 
@@ -257,7 +258,7 @@
     color: var(--ink-faint);
     font-family: var(--roman);
     font-size: 8px;
-    font-weight: 500;
+    font-weight: 600;
     letter-spacing: 0.18em;
     text-transform: uppercase;
     text-shadow: var(--ts);
@@ -280,7 +281,7 @@
     min-width: 62px;
     font-family: var(--arabic);
     font-size: 13px;
-    font-weight: 500;
+    font-weight: 600;
     letter-spacing: 0;
     text-transform: none;
   }
@@ -463,7 +464,7 @@
     color: var(--ink);
     font-family: var(--roman);
     font-size: clamp(22px, 6.2vw, 28px);
-    font-weight: 500;
+    font-weight: 600;
     letter-spacing: 0.2em;
     text-shadow: var(--ts);
     text-transform: uppercase;
@@ -500,7 +501,7 @@
     color: var(--ink);
     font-size: clamp(19px, 5vw, 22px);
     font-style: italic;
-    font-weight: 300;
+    font-weight: 500;
     line-height: 1.74;
     text-shadow: var(--ts);
     text-wrap: pretty;
@@ -517,7 +518,7 @@
   .lead.dim {
     color: var(--ink-soft);
     font-style: italic;
-    font-weight: 300;
+    font-weight: 500;
   }
 
   .small {
@@ -531,7 +532,7 @@
     color: var(--ink);
     font-family: var(--roman);
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 600;
     letter-spacing: 0.09em;
     line-height: 1.5;
     text-shadow: var(--ts);
@@ -542,6 +543,7 @@
     color: var(--gold);
     font-family: var(--roman);
     font-size: 15px;
+    font-weight: 600;
     letter-spacing: 0.22em;
     text-shadow: var(--ts);
   }
@@ -742,7 +744,7 @@
     color: var(--ink);
     font-family: var(--roman);
     font-size: 10px;
-    font-weight: 500;
+    font-weight: 600;
     letter-spacing: 0.24em;
     text-transform: uppercase;
     transition: background 0.4s, color 0.4s, border-color 0.4s, transform 0.2s;
@@ -797,7 +799,7 @@
   .acct.who {
     color: var(--ink);
     font-size: 17px;
-    font-weight: 500;
+    font-weight: 600;
   }
 
   .copy {
@@ -848,7 +850,7 @@
     color: var(--ink);
     font-family: var(--roman);
     font-size: 12px;
-    font-weight: 500;
+    font-weight: 600;
     letter-spacing: 0.18em;
     text-transform: uppercase;
   }
@@ -1086,7 +1088,7 @@
 
   .arabic .names {
     font-family: var(--arabic);
-    font-weight: 500;
+    font-weight: 600;
   }
 
   .arabic .names {

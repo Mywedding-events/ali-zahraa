@@ -20,8 +20,8 @@ const COPY = {
     invitationLead: "Together with our families, we joyfully invite you to celebrate our Katb Kteb.",
     details: "The Details",
     eventName: "Katb Kteb",
-    eventTimeWords: "Five o’clock in the evening",
-    eventTime: "5:00 PM",
+    eventTimeWords: "Half past six in the evening",
+    eventTime: "6:30 PM",
     venue: "Lecial",
     venueCity: "Sarba, Lebanon",
     venueLocation: "View location",
@@ -60,8 +60,8 @@ const COPY = {
     invitationLead: "برفقة عائلتينا، يسعدنا دعوتكم لمشاركتنا فرحة كتب كتابنا.",
     details: "تفاصيل المناسبة",
     eventName: "كتب الكتاب",
-    eventTimeWords: "الساعة الخامسة مساءً",
-    eventTime: "٥:٠٠ مساءً",
+    eventTimeWords: "الساعة السادسة والنصف مساءً",
+    eventTime: "٦:٣٠ مساءً",
     venue: "Lecial",
     venueCity: "صربا، لبنان",
     venueLocation: "عرض الموقع",
@@ -158,7 +158,7 @@ function Crest({ className = "rv", locale = "en" }: { className?: string; locale
 }
 
 function Countdown({ reduceMotion, locale }: { reduceMotion: boolean; locale: Locale }) {
-  const target = useRef(new Date("2026-10-06T17:00:00+03:00").getTime());
+  const target = useRef(new Date("2026-10-06T18:30:00+03:00").getTime());
   const [remaining, setRemaining] = useState<CountdownValue | null>(() => {
     const diff = target.current - Date.now();
     if (diff <= 0) return null;

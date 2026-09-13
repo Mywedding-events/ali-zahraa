@@ -31,7 +31,7 @@
       .ar { font-family: 'Noto Naskh Arabic', 'Amiri', serif; direction: rtl; unicode-bidi: bidi-override; text-anchor: middle; }
       .navy { fill: #1b2246; }
       .goldText { fill: #93621c; }
-      .small { font-size: 34px; font-weight: 400; }
+      .small { font-size: 34px; font-weight: 500; }
       .body { font-size: 42px; font-weight: 500; }
       .detail { font-size: 45px; font-weight: 600; }
     </style>
@@ -89,7 +89,7 @@
 
   <text x="540" y="819" class="ar navy detail" filter="url(#shadow)">الثلاثاء، ٦ تشرين الأول ٢٠٢٦</text>
   <text x="540" y="891" class="ar goldText" font-family="'Noto Naskh Arabic', 'Amiri', serif" font-size="54" font-weight="700"
-        direction="rtl" unicode-bidi="bidi-override" text-anchor="middle" filter="url(#shadow)">الساعة الخامسة مساءً</text>
+        direction="rtl" unicode-bidi="bidi-override" text-anchor="middle" filter="url(#shadow)">الساعة السادسة والنصف مساءً</text>
 
   <g transform="translate(188 932)">
     <rect x="0" y="0" width="704" height="168" rx="3" fill="#fbf7ee" fill-opacity="0.48" stroke="#b38734" stroke-width="1.5"/>

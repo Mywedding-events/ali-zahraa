@@ -525,6 +525,22 @@
     font-weight: 500;
   }
 
+  .guest-note {
+    width: fit-content;
+    margin: 14px auto 2px;
+    border-top: 1px solid var(--line-soft);
+    border-bottom: 1px solid var(--line-soft);
+    padding: 5px 12px;
+    color: var(--gold);
+    font-family: var(--roman);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    line-height: 1.5;
+    text-shadow: var(--ts);
+    text-transform: uppercase;
+  }
+
   .small {
     color: var(--ink-soft);
     font-size: 14px;
@@ -1132,6 +1148,12 @@
   .arabic .date { font-size: 13px; }
   .arabic .verse { font-size: clamp(20px, 5.2vw, 23px); line-height: 1.9; }
   .arabic .lead { font-size: clamp(18px, 4.8vw, 20px); line-height: 1.9; }
+  .arabic .guest-note {
+    font-family: var(--arabic);
+    font-size: 15px;
+    letter-spacing: 0;
+    text-transform: none;
+  }
   .arabic .small { font-size: 16px; }
   .arabic .venue { font-size: 17px; }
   .arabic .time { font-size: 17px; }

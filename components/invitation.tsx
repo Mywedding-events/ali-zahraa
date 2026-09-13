@@ -18,6 +18,7 @@ const COPY = {
     verse: "“And He placed between you affection and mercy.”",
     verseSource: "Qur’an 30:21",
     invitationLead: "Together with our families, we joyfully invite you to celebrate our Katb Kteb.",
+    guestLimit: "This invitation is for two guests.",
     details: "The Details",
     eventName: "Katb Kteb",
     eventTimeWords: "Half past six in the evening",
@@ -58,6 +59,7 @@ const COPY = {
     verse: "«وجعل بينكم مودة ورحمة»",
     verseSource: "القرآن الكريم · الروم ٢١",
     invitationLead: "برفقة عائلتينا، يسعدنا دعوتكم لمشاركتنا فرحة كتب كتابنا.",
+    guestLimit: "الدعوة مخصّصة لشخصين",
     details: "تفاصيل المناسبة",
     eventName: "كتب الكتاب",
     eventTimeWords: "الساعة السادسة والنصف مساءً",
@@ -486,6 +488,7 @@ export function Invitation() {
             <p className="eyebrow rv mt-4">{content.verseSource}</p>
             <Ornament />
             <p className="lead rv">{content.invitationLead}</p>
+            <p className="guest-note rv">{content.guestLimit}</p>
             <h2 className="names rv invitation-names">{content.couple}</h2>
             <p className="date rv">{content.dateLong}</p>
           </div>

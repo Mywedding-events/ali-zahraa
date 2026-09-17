@@ -21,8 +21,8 @@ const COPY = {
     guestLimit: "This invitation is for two guests.",
     details: "The Details",
     eventName: "Katb Kteb",
-    eventTimeWords: "Half past six in the evening",
-    eventTime: "6:30 PM",
+    eventTimeWords: "Seven in the evening",
+    eventTime: "7:00 PM",
     venue: "Lecial",
     venueCity: "Sarba, Lebanon",
     venueLocation: "View location",
@@ -62,8 +62,8 @@ const COPY = {
     guestLimit: "الدعوة مخصّصة لشخصين",
     details: "تفاصيل المناسبة",
     eventName: "كتب الكتاب",
-    eventTimeWords: "الساعة السادسة والنصف مساءً",
-    eventTime: "٦:٣٠ مساءً",
+    eventTimeWords: "الساعة السابعة مساءً",
+    eventTime: "٧:٠٠ مساءً",
     venue: "Lecial",
     venueCity: "صربا، لبنان",
     venueLocation: "عرض الموقع",
@@ -160,7 +160,7 @@ function Crest({ className = "rv", locale = "en" }: { className?: string; locale
 }
 
 function Countdown({ reduceMotion, locale }: { reduceMotion: boolean; locale: Locale }) {
-  const target = useRef(new Date("2026-10-06T18:30:00+03:00").getTime());
+  const target = useRef(new Date("2026-10-06T19:00:00+03:00").getTime());
   const [remaining, setRemaining] = useState<CountdownValue | null>(() => {
     const diff = target.current - Date.now();
     if (diff <= 0) return null;
